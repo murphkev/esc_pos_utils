@@ -37,8 +37,16 @@ class PaperSize {
   final int value;
   static const mm58 = PaperSize._internal(1);
   static const mm80 = PaperSize._internal(2);
+  static const mm102 = PaperSize._internal(3);
 
-  int get width => value == PaperSize.mm58.value ? 372 : 558;
+  int get width => switch(value) {
+    case PaperSize.mm58.value: 
+      return 372;
+    case PaperSize.mm80.value: 
+      return 558;
+    case PaperSize.mm102.value:
+      return 711;
+  }
 }
 
 class PosBeepDuration {
