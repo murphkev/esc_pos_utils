@@ -40,13 +40,14 @@ class PaperSize {
   static const mm102 = PaperSize._internal(3);
 
   int get width { 
-    switch(value) {
-      case PaperSize.mm58.value: 
-        return 372;
-      case PaperSize.mm80.value: 
-        return 558;
-      case PaperSize.mm102.value:
-        return 711;
+    if (value == PaperSize.mm58.value) {
+      return 372;
+    }
+    else if (value == PaperSize.mm80.value) {
+      return 558;
+    }
+    else {
+      return 711;
     }
   }
 }
