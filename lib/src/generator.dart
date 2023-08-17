@@ -36,7 +36,7 @@ class Generator {
     } else if (_paperSize == PaperSize.mm80) {
       return (font == null || font == PosFontType.fontA) ? 48 : 64;
     } else {
-      return (font == null || font == PosFontType.fontA) ? 64 : 80;
+      return (font == null || font == PosFontType.fontA) ? 64 : 72;
     }
   }
 
