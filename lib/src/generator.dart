@@ -254,7 +254,7 @@ class Generator {
     _font = font;
     if (font != null) {
       _maxCharsPerLine = maxCharsPerLine ?? _getMaxCharsPerLine(font);
-      bytes += font == PosFontType.fontB ? cFontB.codeUnits : cFontA.codeUnits;
+      bytes += font == PosFontType.fontB ? cFontB.codeUnits : (font == PosFontType.fontC ? cFontC.codeUnits : cFontA.codeUnits);
       _styles = _styles.copyWith(fontType: font);
     }
     return bytes;
@@ -290,11 +290,11 @@ class Generator {
     // Set font
     if (styles.fontType != null && styles.fontType != _styles.fontType) {
       bytes += styles.fontType == PosFontType.fontB
-          ? cFontB.codeUnits
-          : cFontA.codeUnits;
+          ? cFontB.codeUnits 
+          : (font == PosFontType.fontC ? cFontC.codeUnits : cFontA.codeUnits);
       _styles = _styles.copyWith(fontType: styles.fontType);
     } else if (_font != null && _font != _styles.fontType) {
-      bytes += _font == PosFontType.fontB ? cFontB.codeUnits : cFontA.codeUnits;
+      bytes += _font == PosFontType.fontB ? cFontB.codeUnits : (font == PosFontType.fontC ? cFontC.codeUnits : cFontA.codeUnits);
       _styles = _styles.copyWith(fontType: _font);
     }
 
