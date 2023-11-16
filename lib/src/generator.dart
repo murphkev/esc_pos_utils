@@ -291,10 +291,10 @@ class Generator {
     if (styles.fontType != null && styles.fontType != _styles.fontType) {
       bytes += styles.fontType == PosFontType.fontB
           ? cFontB.codeUnits 
-          : (font == PosFontType.fontC ? cFontC.codeUnits : cFontA.codeUnits);
+          : (styles.fontType == PosFontType.fontC ? cFontC.codeUnits : cFontA.codeUnits);
       _styles = _styles.copyWith(fontType: styles.fontType);
     } else if (_font != null && _font != _styles.fontType) {
-      bytes += _font == PosFontType.fontB ? cFontB.codeUnits : (font == PosFontType.fontC ? cFontC.codeUnits : cFontA.codeUnits);
+      bytes += _font == PosFontType.fontB ? cFontB.codeUnits : (_font == PosFontType.fontC ? cFontC.codeUnits : cFontA.codeUnits);
       _styles = _styles.copyWith(fontType: _font);
     }
 
