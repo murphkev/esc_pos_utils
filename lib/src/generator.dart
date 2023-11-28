@@ -362,7 +362,7 @@ class Generator {
       // Ensure at least one line break after the text
       bytes += emptyLines(linesAfter + 1);
     } else {
-      bytes += _mixedKanji(text, styles: styles, linesAfter: linesAfter, maxCharsPerLine: maxCharsPerLine);
+      bytes += _mixedKanji(text, styles: styles, linesAfter: linesAfter);
     }
     return bytes;
   }
