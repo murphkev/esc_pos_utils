@@ -561,15 +561,10 @@ class Generator {
 
     bytes += emptyLines(1);
 
-    // if (isNextRow) {
-    //   row(nextRow);
-    // }
-    // return bytes;
     if (isNextRow) {
-      return bytes + row(nextRow);
-    } else {
-      return bytes;
+      row(nextRow);
     }
+    return bytes;
   }
 
   /// Print an image using (ESC *) command
