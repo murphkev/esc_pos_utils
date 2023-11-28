@@ -488,7 +488,7 @@ class Generator {
 
         // If the col's content is too long, split it to the next row
         int realCharactersNb = encodedToPrint.length;
-        if (realCharactersNb > maxCharactersNb && cols[i].wrapText) {
+        if (realCharactersNb > maxCharactersNb) {
           // Print max possible and split to the next row
           Uint8List encodedToPrintNextRow =
               encodedToPrint.sublist(maxCharactersNb);
@@ -497,8 +497,7 @@ class Generator {
           nextRow.add(PosColumn(
               textEncoded: encodedToPrintNextRow,
               width: cols[i].width,
-              styles: cols[i].styles,
-              wrapText: cols[i].wrapText));
+              styles: cols[i].styles));
         } else {
           // Insert an empty col
           nextRow.add(PosColumn(
@@ -527,14 +526,13 @@ class Generator {
         String toPrintNextRow = cols[i].text.substring(splitPos);
         String toPrint = cols[i].text.substring(0, splitPos);
 
-        if (toPrintNextRow.isNotEmpty && cols[i].wrapText) {
+        if (toPrintNextRow.isNotEmpty) {
           isNextRow = true;
           nextRow.add(PosColumn(
               text: toPrintNextRow,
               containsChinese: true,
               width: cols[i].width,
-              styles: cols[i].styles,
-              wrapText: cols[i].wrapText));
+              styles: cols[i].styles));
         } else {
           // Insert an empty col
           nextRow.add(PosColumn(
