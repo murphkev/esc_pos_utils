@@ -19,7 +19,7 @@ class PosColumn {
     this.containsChinese = false,
     this.width = 2,
     this.styles = const PosStyles(),
-    this.wrapText,
+    this.wrapText = false,
   }) {
     if (width < 1 || width > 12) {
       throw Exception('Column width must be between 1..12');
